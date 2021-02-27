@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>KOMU</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"/>
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <style>
+            * {
+                font-family: 'DM Serif Display', serif;
+            }
+
+            .korea_font {
+                font-family: "Do Hyeon", sans-serif;
+            }
+
+            .center {
+                text-align: center;
+            }
+
+            .star-list {
+                width: 500px;
+                margin: 20px auto 0 auto;
+            }
+
+            .star-name {
+                display: inline-block;
+            }
+
+            .star-name:hover {
+                text-decoration: underline;
+            }
+
+            .card {
+                margin-bottom: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container center">
+            <div style="margin-bottom: -50px;">
+                <img src="{{ url_for('static', filename='komu.png') }}"
+                     class="img-fluid" alt="Responsive image" width="500">
+            </div>
+            <h1 class="title" style="margin-bottom: 50px; font-size: 50px;">
+                <b> Korea Art Museum </b>
+            </h1>
+        </div>
+        <div class="container center">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="center" style="color: white; font-size: 20px;"> Seoul Art Center</div>
+                    <img src="{{ url_for('static', filename='seoul_art_center.png') }}" style="border-radius: 5%;">
+                </div>
+                <div class="col-sm">
+                    <div class="center"> Two of three columns</div>
+                    <img src="{{ url_for('static', filename='d_museum.png') }}" style="border-radius: 5%">
+                </div>
+                <div class="col-sm">
+                    <div class="center">Three of three columns</div>
+                    <img src="{{ url_for('static', filename='seoul_art_center.png') }}" style="border-radius: 5%">
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>
