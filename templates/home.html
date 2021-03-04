@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>KOMU</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"/>
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+        <style>
+            * {
+                font-family: 'DM Serif Display', serif;
+            }
+            .korea_font {
+                font-family: "Do Hyeon", sans-serif;
+            }
+
+            .center {
+                text-align: center;
+            }
+
+            .image {
+                position: relative;
+                width: 400px;
+            }
+
+            .image_img {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            .image_overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6);
+                color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                border-radius: 5%;
+                transition: opacity 0.5s;
+            }
+            .image_overlay--blur {
+                backdrop-filter: blur(5px);
+            }
+
+            .image_overlay > * {
+                transform: translateY(30px);
+                transition: transform 0.5s;
+            }
+
+            .image_overlay:hover {
+                opacity: 1;
+            }
+            .image_overlay:hover > * {
+                transform: translateY(0);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container center">
+            <div style="margin-top: 50px; margin-bottom: 50px;">
+                <img src="{{ url_for('static', filename='komu.png') }}"
+                     class="img-fluid" alt="Responsive image" width="500">
+            </div>
+            <h1 class="title" style="margin-bottom: 50px; font-size: 50px;">
+                <b> Korea Art Museum </b>
+            </h1>
+        </div>
+        <div class="container center">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="image">
+                        <img class="image_img" src="{{ url_for('static', filename='d_museum2.png') }}" alt = "D Museum"
+                             style="border-radius: 5%">
+                        <div class="image_overlay image_overlay--blur">
+                            <div class="image_title" style="font-size: 30px">D Museum </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="image">
+                        <img class="image_img" src="{{ url_for('static', filename='daelim_museum.png') }}" alt = "Daelim"
+                             style="border-radius: 5%">
+                        <div class="image_overlay image_overlay--blur">
+                            <div class="image_title" style="font-size: 30px">Daelim </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">
+                <div class="col-sm">
+                    <div class="image">
+                        <img class="image_img" src="{{ url_for('static', filename='seoul_art_center.png') }}"
+                             alt="Seoul Art Center"
+                             style="border-radius: 5%">
+                        <div class="image_overlay image_overlay--blur">
+                            <div class="image_title" style="font-size: 30px"> Seoul Art Center </div>
+                        </div>
+                    </div>
+                </div> </a>
+            </div>
+        </div>
+        <div class="container center">
+
+        </div>
+
+
+    </body>
+</html>
