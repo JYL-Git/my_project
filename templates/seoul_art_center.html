@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>KOMU</title>
+        <!-- Webpage Title -->
+        <title>Seoul Art Center</title>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -11,10 +13,59 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"/>
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                showPost();
+            });
+
+            function showPost() {
+                $.ajax({
+                    type: "GET",
+                    url: "/seoul_art_center",
+                    data: {},
+                    success: function (response) {
+                        let temp = response["temp_dic"];
+                        for (let i = 0; i < temp.length; i++) {
+                            makeCard(temp[i]["title"]);
+                        }
+                    }
+                });
+            }
+
+            function showPost() {
+                $.ajax({
+                    type: "GET",
+                    url: "http://spartacodingclub.shop/post",
+                    data: {},
+                    success: function (response) {
+                        let articles = response["articles"];
+                        for (let i = 0; i < articles.length; i++) {
+                            let article = articles[i];
+                            makeCard(article["image"], article["url"], article["title"], article["desc"], article["comment"]);
+                        }
+                    }
+                });
+            }
+
+            function makeCard(image, url, title, desc, comment) {
+                let tempHtml = `<div class="card">
+                                            <img class="card-img-top" src="${image}" alt="Card image cap">
+                                            <div class="card-body">
+                                                <a href="${url}" target="_blank" class="card-title">${title}</a>
+                                                <p class="card-text">${desc}</p>
+                                                <p class="card-text comment">${comment}</p>
+                                            </div>
+                                        </div>`;
+                $("#cards-box").append(tempHtml);
+            }
+
+        </script>
         <style>
             * {
                 font-family: 'DM Serif Display', serif;
             }
+
             .korea_font {
                 font-family: "Do Hyeon", sans-serif;
             }
@@ -23,31 +74,12 @@
     </head>
     <body>
         <div class="container center">
-            <div style="margin-top: 50px; margin-bottom: 50px;">
-                <img src="{{ url_for('static', filename='komu.png') }}"
-                     class="img-fluid" alt="Responsive image" width="500">
-            </div>
-            <h1 class="title" style="margin-bottom: 50px; font-size: 50px;">
-                <b> Korea Art Museum </b>
-            </h1>
+            <tbody id="reviews-box">
+            <tr>
+                <td>왕초보 8주 코딩</td>
+            </tr>
+            </tbody>
         </div>
-        <div class="container center">
-            <div class="row">
-
-                <div class="col-sm">
-                    <div class="image">
-                        <img class="image_img" src="{{ url_for('static', filename='seoul_art_center.png') }}"
-                             alt="Seoul Art Center"
-                             style="border-radius: 5%">
-                        <div class="image_overlay image_overlay--blur">
-                            <div class="image_title" style="font-size: 30px"> Seoul Art Center </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
 
     </body>
 </html>
