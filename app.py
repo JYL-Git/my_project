@@ -33,21 +33,35 @@ def seoul_art_center():
     links = []
     for exhibition in exhibitions:
         link = exhibition.select_one('div > a')['href']
-        links.append(link)
+        if link not in links:
+            links.append(link)
+        else:
+            break
 
-    # article = {'url': url_receive, 'title': url_title, 'desc': url_description, 'image': url_image,
-    #            'comment': comment_receive}
 
     # Inside each link, get title, image, and info (description)
+    exhibition_list = []
     for link in links:
         data = requests.get(link, headers=headers)
         soup = BeautifulSoup(data.text, 'html.parser')
-        title = soup.select_one('#contents > div.cwa-top.show-view > dl > dt > p.title > span').text
-        # duration = soup.select_one('#contents > div.cwa-top.show-view > dl > dt > ul > li:nth-child(1) > span:nth-child(2)')
-        # info = soup.select_one('#contents > div.cwa-top.show-view > dl > dt')
-        exhibition_dic = {'title': title}
-        db.exhbition.insert_one(exhibition_dic)
-    return jsonify({'result': 'success', 'exhibition': exhibition_dic})
+        og_title = soup.select_one('meta[property="og:title"]')
+        url_title = og_title['content']
+        og_image = soup.select_one('meta[property="og:image"]')
+        url_image = og_image['content'].split(".jpg")[0]
+        # title = soup.select_one('#contents > div.cwa-top.show-view > dl > dt > p.title > span').text
+        duration = soup.select_one('#contents > div.cwa-top.show-view > dl > dt > ul > li:nth-child(1) > span:nth-child(2)').text.strip()
+
+    #     temp = [title, duration]
+    #     # info = soup.select_one('#contents > div.cwa-top.show-view > dl > dt')
+    #     # src_exhibition = {'title': title}
+    #     # db.exhibition.insert_one(src_exhibition)
+        temp = {'title': url_title, 'img': url_image}
+        exhibition_list.append(temp)
+
+    print(exhibition_list[1]['title'],exhibition_list[1]['img'])
+
+    print(jsonify({'result': 'success', 'exhibition': exhibition_list}))
+    return jsonify({'result': 'success', 'exhibition': exhibition_list})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

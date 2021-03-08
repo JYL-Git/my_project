@@ -16,47 +16,31 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
-                showPost();
+                $("#cards-box").empty()
+                show_exhibition();
             });
 
-            function showPost() {
+            function show_exhibition() {
                 $.ajax({
                     type: "GET",
                     url: "/seoul_art_center",
                     data: {},
                     success: function (response) {
-                        let temp = response["temp_dic"];
-                        for (let i = 0; i < temp.length; i++) {
-                            makeCard(temp[i]["title"]);
+                        let exhibition = response["exhibition"];
+                        console.log(exhibition);
+                        for (let i = 0; i < exhibition.length; i++) {
+                            make_card(exhibition[i]['title'], exhibition[i]['img'])
                         }
                     }
                 });
             }
 
-            function showPost() {
-                $.ajax({
-                    type: "GET",
-                    url: "http://spartacodingclub.shop/post",
-                    data: {},
-                    success: function (response) {
-                        let articles = response["articles"];
-                        for (let i = 0; i < articles.length; i++) {
-                            let article = articles[i];
-                            makeCard(article["image"], article["url"], article["title"], article["desc"], article["comment"]);
-                        }
-                    }
-                });
-            }
-
-            function makeCard(image, url, title, desc, comment) {
+            function make_card(title, img) {
                 let tempHtml = `<div class="card">
-                                            <img class="card-img-top" src="${image}" alt="Card image cap">
-                                            <div class="card-body">
-                                                <a href="${url}" target="_blank" class="card-title">${title}</a>
-                                                <p class="card-text">${desc}</p>
-                                                <p class="card-text comment">${comment}</p>
-                                            </div>
-                                        </div>`;
+                <img class="card-img-top"
+                     src="${img}"
+                     alt="Card image cap">
+            </div>`;
                 $("#cards-box").append(tempHtml);
             }
 
@@ -65,7 +49,6 @@
             * {
                 font-family: 'DM Serif Display', serif;
             }
-
             .korea_font {
                 font-family: "Do Hyeon", sans-serif;
             }
@@ -73,13 +56,12 @@
         </style>
     </head>
     <body>
-        <div class="container center">
-            <tbody id="reviews-box">
-            <tr>
-                <td>왕초보 8주 코딩</td>
-            </tr>
-            </tbody>
+        <div id="cards-box" class="card-columns">
+            <div class="card">
+                <img class="card-img-top"
+                     src="https://www.eurail.com/content/dam/images/eurail/Italy%20OCP%20Promo%20Block.adaptive.767.1535627244182.jpg"
+                     alt="Card image cap">
+            </div>
         </div>
-
     </body>
 </html>
