@@ -55,12 +55,14 @@ def seoul_art_center():
     #     # info = soup.select_one('#contents > div.cwa-top.show-view > dl > dt')
     #     # src_exhibition = {'title': title}
     #     # db.exhibition.insert_one(src_exhibition)
-        temp = {'title': url_title, 'img': url_image}
+        temp = {'title': url_title, 'img': url_image, 'duration': duration}
+        # if db.exhibition.find_one(temp):
+        #     pass
+        # else:
+        #     db.exhibition.insert_one(temp)
         exhibition_list.append(temp)
+    # result = list(db.exhibition.find({}, {'_id': 0}))
 
-    print(exhibition_list[1]['title'],exhibition_list[1]['img'])
-
-    print(jsonify({'result': 'success', 'exhibition': exhibition_list}))
     return jsonify({'result': 'success', 'exhibition': exhibition_list})
 
 if __name__ == '__main__':
