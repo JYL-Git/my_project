@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <!-- Webpage Title -->
-        <title>Seoul Art Center</title>
+        <title>Arte Museum</title>
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -23,27 +23,27 @@
             function show_exhibition() {
                 $.ajax({
                     type: "GET",
-                    url: "/seoul_art_center",
+                    url: "/arte_museum",
                     data: {},
                     success: function (response) {
                         let exhibition = response["exhibition"];
                         console.log(exhibition);
                         for (let i = 0; i < exhibition.length; i++) {
-                            make_card(exhibition[i]['title'], exhibition[i]['img'], exhibition[i]['duration'])
+                            make_card(exhibition[i]['title'], exhibition[i]['image'])
+
                         }
                     }
                 });
             }
 
-            function make_card(title, img, duration) {
+            function make_card(title, image) {
                 let tempHtml =
                         `<div class="col-sm">
                     <div class="image">
-                        <img class="image_img" src="${img}" alt="D Museum"
+                        <img class="image_img" src="${image}" alt="D Museum"
                              style="border-radius: 5%">
                         <div class="image_overlay image_overlay--blur">
                             <div class="image_title" style="font-size: 17px"> <center>${title}</center></div>
-                            <div class="image_title" style="font-size: 17px"> <center>${duration}</center></div>
                         </div>
                     </div>
                 </div>`;
@@ -116,13 +116,47 @@
 
         </style>
     </head>
-    <body style="background: #485F6E;">
+    <body style="background: #000000;">
+        <div doz_type="section"
+             class="section_wrap visual_section  pc_section   mobile_hide   section_first _section_first   "
+             id="s202009072be8df38865c4" doz_mobile_section="N" doz_mobile_hide="Y" doz_header_repeat="N"
+             doz_footer_repeat="N" doz_category="visual" doz_fullpage="N" style="">
+            <div class="visual_section  _visual_section  full_screen_show " id="visual_s202009072be8df38865c4">
 
-        <div style="text-align: center;"><h1 class="title" style=" font-size: 200px; margin-bottom: 40px">
-            <img src="https://www.sac.or.kr/design/theme/sac/images/logo.png">
-        </h1></div>
-
-        <div class="container-fluid">
+                <!-- 비주얼 영역-->
+                <div class="owl-carousel owl-theme _slide owl-loaded">
+                    <div class="owl-item" style="width: 100%; float: none;">
+                        <div class="item holder section  video_item "
+                             style=" background-color:#000000; background-repeat : no-repeat; background-size : cover; background-position : 50% 50%;">
+                            <div class="section_vg_wrap _section_vg_wrap">
+                                <iframe class="section_vg _section_vg active"
+                                        id="screen_s202009072be8df38865c4_0551R65w00" frameborder="0"
+                                        allowfullscreen="1"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        title="YouTube video player" width="2410.6666666666665" height="1356"
+                                        src="https://www.youtube.com/embed/athlev1JU-E?autoplay=1&amp;autohide=1&amp;modestbranding=0&amp;rel=0&amp;showinfo=0&amp;controls=0&amp;disablekb=1&amp;enablejsapi=1&amp;iv_load_policy=3&amp;origin=http%3A%2F%2Fartemuseum.com&amp;widgetid=2"
+                                        style="position: absolute; width: 100%; height: 1356px; margin: auto; top: 50%; left: 50%; transform: translate(-50%, -50%);"></iframe>
+                            </div>
+                            <div class="op _op"
+                                 style="position: absolute; margin: auto; top: 50%; left: 50%; transform: translate(-50%,60%);">
+                                <div class="header-content _visual_height m_ratio">
+                                    <div class="text _text_wrap">
+                                        <div class="text-wrap _text fr-view">
+                                            <p>
+                                                <img src="https://cdn.imweb.me/upload/S20200907aa7ebabc19c15/83c07aebd293c.png"
+                                                     style="width: 954px;" class="fr-dib">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end.비주얼 영역 -->
+            </div>
+        </div>
+        <div class="container-fluid" style="margin-top: 80%; position: relative">
             <div id="src_card" class="card-columns">
                 <div class="card">
                     <div class="image">
@@ -131,15 +165,12 @@
                              alt="D Museum"
                              style="border-radius: 5%">
                         <div class="image_overlay image_overlay--blur">
-                            <div class="image_title" style="font-size: 18px">D Museum</div>
+                            <div class="image_title" style="font-size: 18px">arte</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div style="text-align: center;"><h1 class="title" style=" font-size: 1000px; margin-bottom: 1000px">
-            <img src="">
-        </h1></div>
 
 
     </body>

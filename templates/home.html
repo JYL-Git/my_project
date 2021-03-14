@@ -3,7 +3,7 @@
     <head>
         <title>KOMU</title>
         <meta property="og:title" content="KOMU"/>
-        <meta property="og:description" content="Korea Art Museum"/>
+        <meta property="og:description" content="한국 유명 미술관을 한눈에 볼 수 있는 사이트입니다."/>
         <meta property="og:image" content="{{ url_for('static', filename='komu.png') }}"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -75,25 +75,30 @@
         </style>
     </head>
     <body>
-        <div class="container center">
-            <div style="margin-top: 50px; margin-bottom: 50px;">
+        <div class="container center" style= "margin-bottom: 150px">
+            <div style="margin-top: 100px; margin-bottom: 150px;">
                 <img src="{{ url_for('static', filename='komu.png') }}"
                      class="img-fluid" alt="Responsive image" width="500">
             </div>
-            <h1 class="title" style="margin-bottom: 50px; font-size: 50px;">
+            <h1 class="title" style="margin-bottom: 50px; font-size: 100px;">
                 <b> Korea Art Museum </b>
             </h1>
         </div>
         <div class="container center">
             <div class="row">
                 <div class="col-sm">
-                    <div class="image">
-                        <img class="image_img" src="{{ url_for('static', filename='d_museum2.png') }}" alt="D Museum"
-                             style="border-radius: 5%">
-                        <div class="image_overlay image_overlay--blur">
-                            <div class="image_title" style="font-size: 30px">D Museum</div>
+                    <a href="/open_arte_museum">
+
+                        <div class="image">
+                            <img class="image_img" src="{{ url_for('static', filename='arte_museum.png') }}"
+                                 alt="Seoul Art Center"
+                                 style="border-radius: 5%">
+                            <div class="image_overlay image_overlay--blur">
+                                <div class="image_title" style="font-size: 30px"> Arte Museum </div>
+                            </div>
                         </div>
-                    </div>
+
+                    </a>
                 </div>
                 <div class="col-sm">
                     <div class="image">
@@ -104,8 +109,9 @@
                         </div>
                     </div>
                 </div>
-                <a href="/open_seoul_art_center">
-                    <div class="col-sm">
+
+                <div class="col-sm">
+                    <a href="/open_seoul_art_center">
                         <div class="image">
                             <img class="image_img" src="{{ url_for('static', filename='seoul_art_center.png') }}"
                                  alt="Seoul Art Center"
@@ -114,10 +120,9 @@
                                 <div class="image_title" style="font-size: 30px"> Seoul Art Center</div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
         </div>
-
     </body>
 </html>
