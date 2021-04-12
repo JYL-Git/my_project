@@ -15,6 +15,7 @@
 
 ## 사용 How To Use
 - 미술관 사진에 마우스를 가져가면 해당 미술관의 이름을 볼 수 있습니다.
+![](/Users/JYL/Desktop/SPARTA_12th_Project/my_project/static/hover_on_picture.png)
 - 미술관을 클릭하면 미술관의 현 전시 상황을 볼 수 있습니다.
 ![](header.png)
 
