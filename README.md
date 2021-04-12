@@ -6,7 +6,6 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 
-> 프로젝트 간략 소개 한 문장 
 - http://komu.shop/
 - 한국 미술관 아르떼, 대림, 예술의 전당 실시간 전시 현황을 보여주는 사이트
 
