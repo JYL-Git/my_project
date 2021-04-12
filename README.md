@@ -16,8 +16,11 @@
 ## 사용 How To Use
 
 - 미술관 사진에 마우스를 가져가면 해당 미술관의 이름을 볼 수 있습니다.
+
 ![](https://user-images.githubusercontent.com/77158279/114404061-52427a00-9be0-11eb-8c29-16554125a256.png)
+
 - 미술관을 클릭하면 미술관의 현 전시 상황을 볼 수 있습니다.
+
 ![](https://user-images.githubusercontent.com/77158279/114403778-0d1e4800-9be0-11eb-8b93-167d508a5486.png)
 
 
